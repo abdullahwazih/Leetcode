@@ -4,14 +4,18 @@ class Solution:
         leftMax = rightMax = 0
         water = 0
 
-        while left < right:
-            if height[left] < height[right]:
+        while left <= right:
+
+            #print(left, right, leftMax, rightMax, water)
+
+            if leftMax < rightMax:
+                water += max(leftMax - height[left], 0)
                 leftMax = max(leftMax, height[left])
-                water += leftMax - height[left]
                 left += 1
             else:
+                water += max(rightMax - height[right], 0)
                 rightMax = max(rightMax, height[right])
-                water += rightMax - height[right]
                 right -= 1
+            #print(water, "______")
 
         return water
