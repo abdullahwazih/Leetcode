@@ -11,11 +11,11 @@ class Solution:
 
             if node is None:
                 return
-
+            node.left, node.right = node.right, node.left
+            
             inversion(node.left)
             inversion(node.right)
             
-            node.left, node.right = node.right, node.left
 
         inversion(root)
 
