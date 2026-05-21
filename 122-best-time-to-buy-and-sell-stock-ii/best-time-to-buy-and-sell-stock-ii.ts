@@ -3,9 +3,9 @@ function maxProfit(prices: number[]): number {
     let profit: number = 0;
 
 
-for (let prv = 0, crnt = 1; crnt < prices.length; prv++, crnt++) {
-    if (prices[prv] <= prices[crnt]) {
-        profit += prices[crnt] - prices[prv];
+for (let prv = 0; prv < prices.length - 1; prv++) {
+    if (prices[prv] <= prices[prv + 1]) {
+        profit += prices[prv + 1] - prices[prv];
     }
 }
 
